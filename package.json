@@ -1,0 +1,34 @@
+{
+  "name": "@oipage/browser.js",
+  "version": "1.0.0",
+  "description": "现代jQuery，一个更简单小巧的前端开发库",
+  "main": "./dist/browser.min.js",
+  "typings": "./types/index.d.ts",
+  "scripts": {
+    "start": "npm install && npm run dev",
+    "dev": "oipage-cli run \"rollup --config ./rollup.config.js -w\" \"oipage-cli serve -p 20000\"",
+    "build": "rollup --config ./rollup.config.js && terser ./dist/browser.js --compress --mangle --output ./dist/browser.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oi-contrib/oipage-browserjs.git"
+  },
+  "author": {
+    "name": "zxl20070701",
+    "url": "https://zxl20070701.github.io/notebook/home.html"
+  },
+  "keywords": [
+    "oipage",
+    "browser",
+    "javascript"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "rollup": "^4.6.1",
+    "terser": "^5.17.1"
+  },
+  "dependencies": {
+    "oipage": "^1.5.0"
+  }
+}

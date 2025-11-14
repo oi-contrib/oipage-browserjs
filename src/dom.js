@@ -1,0 +1,57 @@
+import sizzle from "./sizzle.js"
+
+// 把当前维护的结点加到目标结点内部的结尾
+export let appendTo = function (target, context) {
+    let nodes = sizzle(target, context)
+    if (nodes.length > 0) {
+        for (let i = 0; i < this.length; i++)
+            nodes[0].appendChild(this[i])
+    } else {
+        throw new Error('Target empty!')
+    }
+    return this
+}
+
+// 把当前维护的结点加到目标结点内部的开头
+export let prependTo = function (target, context) {
+    let nodes = sizzle(target, context)
+    if (nodes.length > 0) {
+        for (let i = 0; i < this.length; i++)
+            nodes[0].insertBefore(this[i], nodes[0].childNodes[0])
+    } else {
+        throw new Error('Target empty!')
+    }
+    return this
+}
+
+// 把当前维护的结点加到目标结点之后
+export let afterTo = function (target, context) {
+    let nodes = sizzle(target, context)
+    if (nodes.length > 0) {
+        for (let i = 0; i < this.length; i++)
+            //如果第二个参数undefined,在结尾追加，目的一样达到
+            nodes[0].parentNode.insertBefore(this[i], nodes[0].nextSibling)
+    } else {
+        throw new Error('Target empty!')
+    }
+    return this
+}
+
+// 把当前维护的结点加到目标结点之前
+export let beforeTo = function (target, context) {
+    let nodes = sizzle(target, context)
+    if (nodes.length > 0) {
+        for (let i = 0; i < this.length; i++)
+            nodes[0].parentNode.insertBefore(this[i], nodes[0])
+    } else {
+        throw new Error('Target empty!')
+    }
+    return this
+}
+
+// 删除当前维护的结点
+export let remove = function () {
+    for (let i = 0; i < this.length; i++)
+        this[i].parentNode.removeChild(this[i])
+    return this
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试页面</title>
+    <script src="../dist/browser.js"></script>
+    <style>
+        li:first-child {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>
+        OIPage系列
+    </h2>
+    <ul>
+        <li>
+            OIPage 若干零碎方法
+        </li>
+        <li>
+            corejs 工具对象
+        </li>
+        <li id="lid">
+            stylecss 样式库
+        </li>
+        <li>
+            browserjs 浏览器端工具对象
+        </li>
+    </ul>
+
+    <script>
+        // console.log(browserjs)
+        let bjs = browserjs("li")
+
+        // browserjs
+        console.log(browserjs(bjs, "div"))
+        console.log(bjs)
+        console.log(browserjs("<div></div>"))
+        console.log(browserjs("<li>1</li><li>2</li><li>3</li>"))
+
+        // css
+        // console.log(bjs.css())
+        bjs.css("color", "red")
+        bjs.css({
+            color: "pink",
+            fontSize: "15px"
+        })
+        console.log(bjs.css("color"))
+        console.log(bjs.css("font-size"))
+
+        // bind unbind
+        function doit(event) {
+            console.log(event)
+        }
+        bjs.bind("click", doit)
+        // bjs.unbind("click",doit)
+
+        // appendTo prependTo afterTo beforeTo remove
+        let el1 = browserjs("<li>appendTo</li>").appendTo(browserjs("ul"))
+        let el2 = browserjs("<li>prependTo</li>").prependTo(browserjs("ul"))
+        let el3 = browserjs("<li>afterTo</li>").afterTo(browserjs("#lid"))
+        let el4 = browserjs("<li>beforeTo</li>").beforeTo(browserjs("#lid"))
+        // el4.remove()
+
+        // attr
+        // el1.attr("name1","名称1")
+        el1.attr({
+            val: "--",
+            name1: "名称2"
+        })
+        console.log(el1.attr("name1"))
+
+    </script>
+
+</body>
+
+</html>
