@@ -121,16 +121,20 @@ browserjs.extend({
     onReady
 })
 
+import { eq } from "./find.js"
 import style from "./style.js"
-import { bind, unbind } from "./event.js"
+import { bind, unbind, trigger } from "./event.js"
 import { appendTo, prependTo, afterTo, beforeTo, remove } from "./dom.js"
 import attr from "./attr.js"
+import { hasClass, removeClass, addClass, toggerClass } from "./class.js"
 
 browserjs.prototype.extend({
+    eq,
     css: style,
-    bind, unbind,
+    bind, unbind, trigger,
     appendTo, prependTo, afterTo, beforeTo, remove,
-    attr
+    attr,
+    hasClass, removeClass, addClass, toggerClass
 })
 
 export default browserjs

@@ -8,6 +8,12 @@ interface browserjsInstance {
     extend(target: any, source?: any): any
 
     /**
+     * 获取指定索引的结点，返回一个新的browserjs对象
+     * @param index 
+     */
+    eq(index: number): this
+
+    /**
      * 获取指定样式
      * @param key 
      */
@@ -40,6 +46,12 @@ interface browserjsInstance {
      * 解除绑定事件
      */
     unbind(eventType: string, handler: Function): this
+
+    /**
+     * 触发事件
+     * @param eventType 
+     */
+    trigger(eventType: string): this
 
     /**
      * 把当前维护的结点加到目标结点内部的结尾
@@ -92,6 +104,30 @@ interface browserjsInstance {
      * @param styles 
      */
     attr(styles: object): this
+
+    /**
+     * 判断是否有class
+     * @param clazz 
+     */
+    hasClass(clazz: string): boolean
+
+    /**
+     * 删除class
+     * @param clazz 
+     */
+    removeClass(clazz: string): this
+
+    /**
+     * 添加class
+     * @param clazz 
+     */
+    addClass(clazz: string): this
+
+    /**
+     * 切换class
+     * @param clazz 
+     */
+    toggerClass(clazz: string): this
 }
 
 interface browserjsType {
@@ -114,7 +150,7 @@ interface browserjsType {
      * 等待DOM加载完毕执行
      * @param callback 
      */
-    onReady(callback:Function): null
+    onReady(callback: Function): null
 }
 
 declare let browserjs: browserjsType

@@ -53,10 +53,12 @@ context表示查找上下文，可选，和selector类型一致。
 
 需要通过browserjs对象bjs调用的方法，具体如下：
 
+- [元素查找](./docs/find.md)
 - [样式操作](./docs/style.md)
 - [属性操作](./docs/attr.md)
 - [元素操作](./docs/dom.md)
 - [事件](./docs/event.md)
+- [class操作](./docs/class.md)
 
 ### 类方法
 

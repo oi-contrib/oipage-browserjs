@@ -3,7 +3,7 @@ export default function () {
 
     // 获取属性值
     if (arguments.length === 1 && typeof arguments[0] !== 'object') {
-        if (this.length <= 0) throw new Error('Target empty!');
+        if (this.length <= 0) throw new Error('Target empty!')
         return this[0].getAttribute(arguments[0])
     }
 
